@@ -1,0 +1,12 @@
+﻿@model IList<FSharpDemoPresentation.Models.ChapterPresentation>
+
+<ul class="dropdown-menu">
+    @if (Model != null)
+    {
+        foreach (var chapterTmp in Model)
+        {
+    <li>@Html.ActionLink(chapterTmp.Title, "DemoContent", "Home",
+                         new { category = chapterTmp.View, title = chapterTmp.Title }, null)</li>
+        }
+    }
+</ul>

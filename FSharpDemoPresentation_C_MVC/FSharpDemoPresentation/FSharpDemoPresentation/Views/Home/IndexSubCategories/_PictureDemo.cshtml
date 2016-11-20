@@ -1,0 +1,14 @@
+﻿@model IList<FSharpDemoPresentation.Models.ChapterPresentation>
+
+@if (Model != null && Model.Count > 0)
+{
+    var chapterSelected = Model.Where(chap => chap.Title == ViewBag.Title).First();
+    <div class="panel panel-default">
+        <div class="panel-heading">@chapterSelected.Title</div>
+        <div class="panel-body">
+            <div class="thumbnail">
+                <img src="@Url.Content(chapterSelected.Picture)" />
+            </div>
+        </div>
+    </div>
+}

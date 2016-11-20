@@ -1,0 +1,13 @@
+﻿@{
+    if (string.IsNullOrEmpty(ViewBag.Title)) {
+        ViewBag.Title = "F#Demo Presentation";
+    }
+}
+
+<h1>@ViewBag.Title</h1>
+
+@if (!string.IsNullOrEmpty(ViewBag.ContentPartialView))
+{
+    @Html.Partial(ViewBag.ContentPartialView as string);
+}
+

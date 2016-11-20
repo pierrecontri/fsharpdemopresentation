@@ -1,0 +1,193 @@
+﻿@model IList<FSharpDemoPresentation.Models.ChapterPresentation>
+
+<section>
+    <article>
+        <header><span class="label label-primary">Class / Object</span></header>
+        <div id="container-fluid">            
+            <ul class ="list-unstyled">
+                <li>F# can be use like C# by Object Oriented.</li>
+                <li>We can implement interface for a specific "Object"</li>
+                <li>We can inherits from a class for a specific "Object"</li>
+                <li></li>
+            </ul>
+        </div>
+        <aside>
+            <code><pre>
+namespace FSharpDemo1.Company
+open System
+    // type Person
+    type Person =
+        val private m_FirstName : string
+        val mutable private m_NickName : string
+        val private m_Age : int
+        val private m_ID : Guid
+        [ < defaultvalue > ] static val mutable private countPerson : int
+        new(first : string, nickName : string, age : int) = 
+            {
+                m_FirstName = first
+                m_NickName = nickName
+                m_Age = age
+                m_ID = Guid.NewGuid()
+            } then Person.countPerson <- person.countperson + 1
+            member this.id=this.m_ID
+            member this.firstname=this.m_FirstName
+            member this.nickname
+                with get()=this.m_NickName
+                and set (value)=this.m_NickName<- value
+            member this.age=this.m_Age
+            member p.sayhowdy()=Console.WriteLine("{0} says, 'Howdy, all' !", p.firstname)
+            override p.tostring()=String.Format("[Person: first={0}, nickname={1}, age={2}]",
+               p.firstname, p.nickname, p.age)
+
+    // class Employ
+    type Employee =
+        inherit Person
+        new() =
+            {
+                inherit Person("Anonymous", "Anonymous", 0)
+            }
+        new(first : string, nickName : string, age : int) = 
+            {
+                inherit Person(first, nickName, age)
+            }
+        new(person : Person) = 
+            {
+                inherit Person(person.FirstName, person.NickName, person.Age)
+            }
+ 
+    // class team leader
+    type TeamLeader =
+        inherit Employee
+        new() =
+            {
+                inherit Employee("Anonymous", "Anonymous", 0)
+            }
+        new(first : string, nickName : string, age : int) = 
+            {
+                inherit Employee(first, nickName, age)
+            }
+        new(person : Person) = 
+            {
+                inherit Employee(person.FirstName, person.NickName, person.Age)
+            }
+
+    // comportment
+    type IHumanResourcesChief =
+        interface
+            abstract member Name : string
+            abstract member Action : Person -> string -> (Person -> string -> bool) -> bool
+        end
+    type ISaySomethingToEmploye =
+       abstract member Print : Employee -> string -> unit
+    type IDynamicSaySomethingToEmploye =
+       abstract member Print : unit
+       
+    // class SuperBoss
+    type SuperBoss(person: Person) =
+      class
+        inherit Person (person.FirstName, person.NickName, person.Age )
+        member this.ChiefFunction = ""
+        interface ISaySomethingToEmploye with
+          member this.Print employee action = printfn "Hey %s, %s" (employee.FirstName) action
+        interface IHumanResourcesChief with
+          member this.Name = 
+            "MarioBoss"
+          member this.Action (person: Person) (comment: string) (op: (Person -> string -> bool)) =
+            op person comment
+        interface IDynamicSaySomethingToEmploye with 
+            member this.Print = ()
+      end
+
+
+            </pre></code>
+            <br />
+            <hr />
+            Using it :<br />
+            <code>
+<pre>
+module Hello
+open Microsoft.FSharp.Collections
+open System
+open System.Collections.Generic
+open FSharpDemo1.Company
+// return "Hello World" by method
+let returnHelloWorld =
+    "Hello World !"
+let SayHello(name: string) =
+    "Hello " + 
+        if not(System.String.IsNullOrEmpty(name)) then
+            name
+        else
+            "World"
+        + " !"
+// Iteration sur Sequence ( {1, 2, 3, 4} )
+let mySeq = [|1; 2; 3; 4|]
+let mySeq2 = mySeq
+                |> Seq.filter(fun num -> (num % 2) = 0 )
+                |> Seq.iter(fun num -> printfn "%d" num)
+
+
+// -- main --
+let mainHello () =
+    
+    // Say hello team
+    // with tuple
+    printfn "%s" (SayHello("Team DotNet and SharePoint"))
+
+    /// Create person (with C# philosophie)
+    let people = new List < person > ()
+    people.Add(new Employee("Person1", "NickName1", 33))
+    people.Add(new Employee("Person2", "NickName2", 24))
+    people.Add(new TeamLeader("Person3", "NickName3", 29))
+    people.[1].SayHowdy()
+    printfn "Person2's ID : %s" (people.[1].ID.ToString())
+    // Print Object
+    printfn "%O" people
+    printfn "%A" people
+    
+    // print NickName
+    for tty in people do 
+        Console.WriteLine(tty.NickName)
+
+    /// Play with class
+    let superBoss1 = DataBase.MultipleSuperMario |> Seq.nth 0
+    let superBoss2 = new SuperBoss(superBoss1)
+
+    /// Get the second employ (on the sequence)
+    let employeeSelected = (Employee (people |> Seq.nth(1)))
+
+    /// Use the ISaySomethingToEmploye interface (need to cast object explicitly)
+    (superBoss2 :> ISaySomethingToEmploye).Print employeeSelected " You're a good guy !! "
+
+    /// Use the IDynamicSaySomethingToEmploye
+    /// Result is nothing, because this interface is empty
+    (superBoss2 :> IDynamicSaySomethingToEmploye).Print
+
+    /// Implement interface IDynamicSaySomethingToEmploye
+    /// on an instancianted object
+    let superMarioBoss3 = {new SuperBoss(DataBase.MultipleSuperMario |> Seq.nth 2)  
+                                    interface IDynamicSaySomethingToEmploye with
+                                        member this.Print = printfn "Hello Employes !"
+                                    end
+                          }
+
+    /// Print the dynamic instanciation of the interface
+    (superMarioBoss3 :> IDynamicSaySomethingToEmploye).Print 
+
+    /// Create a new boss
+    let superMarioBoss4 = new SuperBoss(DataBase.MultipleSuperMario |> Seq.nth 3)
+    /// The dynamic instancation of the interface is empty again
+    (superMarioBoss4 :> IDynamicSaySomethingToEmploye).Print
+
+    ()
+</pre>
+            </code>
+        </aside>
+        <footer></footer>
+    </article>
+</section>
+
+@if (Model != null)
+{
+    Html.RenderPartial("IndexSubCategories/_PictureDemo", Model);
+}

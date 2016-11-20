@@ -1,0 +1,50 @@
+﻿@model IList<FSharpDemoPresentation.Models.ChapterPresentation>
+
+@{
+    if (string.IsNullOrEmpty(ViewBag.Title)) {
+        ViewBag.Title = "F#Demo Presentation";
+    }
+
+    var currentChapter = Model.Where(chpt => chpt.Title.Equals(ViewBag.Title)).FirstOrDefault();
+
+    FSharpDemoPresentation.Models.ChapterPresentation nextChapter = null;
+    FSharpDemoPresentation.Models.ChapterPresentation previousChapter = null;
+    
+    if (currentChapter != null)
+    {
+        var currentChapterIndex = Model.IndexOf(currentChapter);
+        var nextIndex = currentChapterIndex + 1;
+        nextChapter = (nextIndex < Model.Count) ? Model.Skip(nextIndex).FirstOrDefault() : null;
+        var previousIndex = currentChapterIndex - 1;
+        previousChapter = (previousIndex >= 0) ? Model.Skip(previousIndex).FirstOrDefault() : null;
+    }
+
+    var buttonNextClass = new { @class = "pull-right btn btn-primary btn-large glyphicon glyphicon-arrow-right" };
+    var buttonPreviousClass = new { @class = "pull-right btn btn-primary btn-large glyphicon glyphicon-arrow-left" };
+}
+
+<h1>@ViewBag.Title</h1>
+
+@if (ViewBag.ContentPartialView != null)
+{
+    @Html.Partial(ViewBag.ContentPartialView as string, Model);
+}
+else
+{
+    <div>Please, click on the Home button in nav</div>
+}
+
+<div class="row-fluid">
+    @if (nextChapter != null)
+    {
+        @Html.ActionLink(" Next", "DemoContent", "Home",
+                         new { category = nextChapter.View, title = nextChapter.Title },
+                         buttonNextClass)
+    }
+    @if (previousChapter != null)
+    {
+        @Html.ActionLink(" Previous", "DemoContent", "Home",
+                         new { category = previousChapter.View, title = previousChapter.Title },
+                         buttonPreviousClass)
+    }
+</div>

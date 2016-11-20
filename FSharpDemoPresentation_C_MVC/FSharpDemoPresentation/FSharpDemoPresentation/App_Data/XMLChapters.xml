@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Chapters>
+  <Chapter>
+    <View>IndexSubCategories/_Introduction</View>
+    <Title>Introduction</Title>
+    <Description>This is an introduction to F#</Description>
+    <Picture>~/App_Data/Pictures/FSharpDemo1.Introduction.png</Picture>
+  </Chapter>
+  <Chapter>
+    <View>IndexSubCategories/_ObjectOrientedProgramming</View>
+    <Title>Object Oriented Programming</Title>
+    <Description>Use F# with C# background</Description>
+    <Picture>~/App_Data/Pictures/FSharpDemo1.ObjectOrientedProgramming.png</Picture>
+  </Chapter>
+  <Chapter>
+    <View>IndexSubCategories/_CallingExternalDll</View>
+    <Title>Calling External dll (.Net)</Title>
+    <Description>You can easily call and use external .Net references</Description>
+    <Picture>~/App_Data/Pictures/FSharpDemo1.CallingExternalDll.png</Picture>
+  </Chapter>
+  <Chapter>
+    <View>IndexSubCategories/_FunctionalProgramming</View>
+    <Title>Functional Programming</Title>
+    <Description>Begin with functional programming</Description>
+    <Picture>~/App_Data/Pictures/FSharpDemo1.FunctionalProgramming.png</Picture>
+  </Chapter>
+  <Chapter>
+    <View>IndexSubCategories/_FunctionalProgrammingWithLinq</View>
+    <Title>Linq Functional Programming Demo</Title>
+    <Description>Begin with Functional programming</Description>
+    <Picture>~/App_Data/Pictures/FSharpDemo1.LinqFunctionalDemo.png</Picture>
+  </Chapter>
+  <Chapter>
+    <View>IndexSubCategories/_Conclusion</View>
+    <Title>Conclusion</Title>
+    <Description>Using F# for new specfics projects multi plateform</Description>
+    <Picture>~/App_Data/Pictures/FSharpDemo1.Conclusion.png</Picture>
+  </Chapter>
+</Chapters>

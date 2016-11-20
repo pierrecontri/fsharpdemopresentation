@@ -1,0 +1,68 @@
+﻿@model IList<FSharpDemoPresentation.Models.ChapterPresentation>
+
+@{
+    if (string.IsNullOrEmpty(ViewBag.Title))
+    {
+        ViewBag.Title = "Presentation";
+    }
+
+    var ajaxOptions = new AjaxOptions
+                 {
+                     UpdateTargetId = "PresentationContent", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace,  // <-- Replace the content of DOM element
+                     HttpMethod = "Post"                     // <-- HTTP method
+                 };
+
+    var buttonCssClass = new { @class = "btn btn-default" };
+    var currentChapter = Model.Where(chp => chp.Title.Equals(ViewBag.Title)).FirstOrDefault();
+}
+
+@section SubMenu {
+    <div class="navbar">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    @foreach (var chapterTmp in Model)
+                    {
+                        ajaxOptions.OnComplete = "UpdateTitle('" + chapterTmp.Title + "')";
+                        <li>
+                            @Ajax.ActionLink((string)chapterTmp.Title, // <-- Text to display
+                                                "GetCategory",         // <-- Action Method Name
+                                                new { category = chapterTmp.View, title = chapterTmp.Title },
+                                                ajaxOptions,
+                                                null)
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+}
+<h1 id="PresentationTitle">Presentation</h1>
+
+<div id="PresentationContent">
+    <div class="jumbotron">
+        <h1>F# Demo &amp; F# + ASP.NET</h1>
+        <p class="lead">Pure F# ASP.NET web apps are a combination of several excellent technologies that allow you to build complex web applications in less time.</p>
+
+        <p class="lead">One of great tools of Microsoft.</p>
+        <p>
+            <a href="http://fsharp.org/" class=" btn btn-primary btn-large" target="winFSharpFoundation">Learn more about F# &raquo;</a>
+            <a href="http://go.microsoft.com/fwlink/?LinkId=301870" class=" btn btn-primary btn-large" target="winASPMVC">Learn more about ASP.NET MVC and WebAPI &raquo;</a>
+        </p>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        function UpdateTitle(titleUpdated) {
+            var presentationTitle = document.getElementById('PresentationTitle');
+            if (presentationTitle.textContent != "undefined") {
+                presentationTitle.textContent = titleUpdated;
+            }
+            else {
+                presentationTitle.innerText = titleUpdated;
+            }
+        }
+    </script>
+}

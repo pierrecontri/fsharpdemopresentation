@@ -1,0 +1,20 @@
+﻿@model IList<FSharpDemoPresentation.Models.ChapterPresentation>
+
+<div class="container-fluide">
+    <div class="row">
+        @if (Model != null)
+        {
+            var actionLinkStyle = new { @class = "btn btn-default" };
+
+            foreach (var chapter in Model)
+            {
+                <div class="col-md-4">
+                    <h2>@chapter.Title</h2>
+                    <p>@chapter.Description</p>
+                    @Html.ActionLink("View", "DemoContent", "Home",
+                    new { category = @chapter.View, title = @chapter.Title }, actionLinkStyle)
+                </div>
+            }
+        }
+    </div>
+</div>

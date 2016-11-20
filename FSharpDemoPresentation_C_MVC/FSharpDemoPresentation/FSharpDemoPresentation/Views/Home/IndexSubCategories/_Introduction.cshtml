@@ -1,0 +1,20 @@
+﻿@model IList<FSharpDemoPresentation.Models.ChapterPresentation>
+
+<h2>Why F#?</h2>
+<div>
+    <ul class="list-group">
+        <li class="list-group-item">Simple Code for Complex Problems</li>
+        <li class="list-group-item">Rapid Prototyping</li>
+        <li class="list-group-item">Seamless Interoperability</li>
+        <li class="list-group-item">Efficient Execution</li>
+        <li class="list-group-item">Reduced Complexity</li>
+        <li class="list-group-item">Script or compile porgrammation (like Python)</li>
+        <li class="list-group-item">Multi-Plateform</li>
+        <li class="list-group-item">Open Source ; Thanks Microsoft</li>
+    </ul>
+</div>
+
+@if (Model != null)
+{
+    Html.RenderPartial("IndexSubCategories/_PictureDemo", Model);
+}

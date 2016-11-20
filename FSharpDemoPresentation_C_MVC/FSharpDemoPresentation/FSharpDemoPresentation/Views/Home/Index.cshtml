@@ -1,0 +1,26 @@
+﻿@model IList<FSharpDemoPresentation.Models.ChapterPresentation>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>F# Demo &amp; F# + ASP.NET</h1>
+    <p class="lead">Pure F# ASP.NET web apps are a combination of several excellent technologies that allow you to build complex web applications in less time.</p>
+
+    <p class="lead">One of great tools of Microsoft.</p>
+    <p>
+        <a href="http://fsharp.org/" class=" btn btn-primary btn-large" target="winFSharpFoundation">Learn more about F# &raquo;</a>
+        <a href="http://go.microsoft.com/fwlink/?LinkId=301870" class=" btn btn-primary btn-large" target="winASPMVC">Learn more about ASP.NET MVC and WebAPI &raquo;</a>
+    </p>
+</div>
+
+<div id="DemoContent">
+
+    @if (!string.IsNullOrEmpty(ViewBag.ContentPartialView))
+    {
+        @Html.Partial(ViewBag.ContentPartialView as string);
+    }
+</div>
+
+@Html.Partial("IndexSubCategories/_IndexCategory", Model)

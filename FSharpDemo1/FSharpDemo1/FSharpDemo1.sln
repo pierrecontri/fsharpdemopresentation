@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharpDemo1", "FSharpDemo1\FSharpDemo1.fsproj", "{8F576807-BBBC-4F77-A995-9A0E600C399B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{94460526-AA4E-474E-99FD-7841C7D68330} = {94460526-AA4E-474E-99FD-7841C7D68330}
+	EndProjectSection
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharpDemo1.Model", "FSharpDemo1.Model\FSharpDemo1.Model.fsproj", "{43A17587-C1AF-43F9-BF7D-9FB518531FFD}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharpDemo1.DAO", "FSharpDemo1.DAO\FSharpDemo1.DAO.fsproj", "{4B177FF8-6E09-4FCC-A19F-2055E042D99A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyDll2", "..\MyDll2\MyDll2.csproj", "{94460526-AA4E-474E-99FD-7841C7D68330}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F576807-BBBC-4F77-A995-9A0E600C399B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F576807-BBBC-4F77-A995-9A0E600C399B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F576807-BBBC-4F77-A995-9A0E600C399B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F576807-BBBC-4F77-A995-9A0E600C399B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F576807-BBBC-4F77-A995-9A0E600C399B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{43A17587-C1AF-43F9-BF7D-9FB518531FFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43A17587-C1AF-43F9-BF7D-9FB518531FFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43A17587-C1AF-43F9-BF7D-9FB518531FFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43A17587-C1AF-43F9-BF7D-9FB518531FFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B177FF8-6E09-4FCC-A19F-2055E042D99A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B177FF8-6E09-4FCC-A19F-2055E042D99A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B177FF8-6E09-4FCC-A19F-2055E042D99A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B177FF8-6E09-4FCC-A19F-2055E042D99A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94460526-AA4E-474E-99FD-7841C7D68330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94460526-AA4E-474E-99FD-7841C7D68330}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94460526-AA4E-474E-99FD-7841C7D68330}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94460526-AA4E-474E-99FD-7841C7D68330}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://pierrecontri.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = FSharpDemo1\\FSharpDemo1.fsproj
+		SccProjectName1 = FSharpDemo1
+		SccLocalPath1 = FSharpDemo1
+		SccProjectUniqueName2 = FSharpDemo1.Model\\FSharpDemo1.Model.fsproj
+		SccProjectName2 = FSharpDemo1.Model
+		SccLocalPath2 = FSharpDemo1.Model
+		SccProjectUniqueName3 = FSharpDemo1.DAO\\FSharpDemo1.DAO.fsproj
+		SccProjectName3 = FSharpDemo1.DAO
+		SccLocalPath3 = FSharpDemo1.DAO
+		SccProjectUniqueName4 = ..\\MyDll2\\MyDll2.csproj
+		SccProjectName4 = ../MyDll2
+		SccLocalPath4 = ..\\MyDll2
+	EndGlobalSection
+EndGlobal

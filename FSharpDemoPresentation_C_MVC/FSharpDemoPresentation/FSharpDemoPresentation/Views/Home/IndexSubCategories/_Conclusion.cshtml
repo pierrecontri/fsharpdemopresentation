@@ -1,0 +1,83 @@
+﻿@model IList<FSharpDemoPresentation.Models.ChapterPresentation>
+
+<section>
+    <article>
+        <p>
+            "F# developers regularly solve problems in days that would take weeks using more
+            traditional languages..."  Finance Trading Company
+        </p>
+        <p>
+            F# is a strongly-typed, functional-first, open-source, cross-platform programming
+             language for writing simple code to solve complex problems.
+            From the business perspective, the primary role of F# is to reduce the time-to-deployment
+            for analytical software components in the modern enterprise. Its interoperability with other
+             languages and libraries and its ability to tackle the complexity of components
+             such as calculation engines and data-rich analytical services offer a compelling story for businesses.
+        </p>
+        <p>
+            F# is both open-source under the OSI-approved Apache 2.0 license and a first-class
+            language in Visual Studio. It is cross-platform and can be used on Mac OS X,
+            Linux, Android, HTML5 and other platforms.
+        </p>
+        <p><a href="http://fsharp.org/use/linux/" class=" btn btn-primary btn-large" target="winFSharpFoundation">Install F# on Linux &raquo;</a></p>
+        <aside>
+            <header>Complete code for F# demo programming on console application responsive</header>
+            <code>
+<pre>
+open System
+open FSharpDemo1.Company
+let mutable keyChapterList = seq []
+let Summary() =
+    // Summary
+    // -------
+    keyChapterList |> Seq.iteri
+            (
+                fun countChapter chapterTitleTmp -> 
+                    match countChapter with
+                        | 0 -> ()
+                        | _ -> printfn "%d) %s" countChapter chapterTitleTmp
+            )
+let chapterList = dict
+                    [
+                        ("Summary", Summary); // Summary
+                        ("Introduction", Comments.Introduction) // Introduction
+                        ("Hello Object Programming", Hello.mainHello); // Hello program
+                        ("Calling external dll (.Net)", ExternalCalling.mainExternalCalling); // Calling external dll (.Net)
+                        ("Functional Programming", FunctionalDemo.mainFunctionalProgramming); // Functional programming
+                        ("Linq Functional Demo", LinqDemo.mainLinqDemo); // Linq Functional Demo
+                        ("Conclusion", Comments.Conclusion) // Conclusion and Tahnk you
+                    ]
+keyChapterList <- seq chapterlist.keys
+let dictlength = chapterList.Count
+[ < entrypoint > ]
+let main argv = 
+    Console.Clear()
+    let mutable pageNum = 0
+    while ( pageNum >= 0 ) do
+        // get chapter into the dictionnary
+        let chapterSelection = chapterList |> Seq.nth(pageNum)
+        
+        // Title Print
+        // -----------
+        Console.Title <- "F# Demo" + " / " + chapterselection.key // H1 Print
+        // --------
+        printfn "%s\n%s\n" chapterSelection.Key ("-".PadRight(chapterSelection.Key.Length, '-' ))
+        // Execute module
+        chapterSelection.Value()
+        // interact with user : navigate
+        pageNum <- pitools.functionnextsection pagenum dictlength // end
+    // ---
+    0 // return an integer exit code
+</pre>
+            </code>
+        </aside>
+        <footer></footer>
+    </article>
+</section>
+
+<h1>Thank You</h1>
+
+@if (Model != null)
+{
+    Html.RenderPartial("IndexSubCategories/_PictureDemo", Model);
+}
