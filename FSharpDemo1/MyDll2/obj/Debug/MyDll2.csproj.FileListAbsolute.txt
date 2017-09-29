@@ -1,0 +1,5 @@
+D:\git_devs\fsharpdemopresentation\FSharpDemo1\MyDll2\bin\Debug\MyDll2.dll
+D:\git_devs\fsharpdemopresentation\FSharpDemo1\MyDll2\bin\Debug\MyDll2.pdb
+D:\git_devs\fsharpdemopresentation\FSharpDemo1\MyDll2\obj\Debug\MyDll2.csprojResolveAssemblyReference.cache
+D:\git_devs\fsharpdemopresentation\FSharpDemo1\MyDll2\obj\Debug\MyDll2.dll
+D:\git_devs\fsharpdemopresentation\FSharpDemo1\MyDll2\obj\Debug\MyDll2.pdb

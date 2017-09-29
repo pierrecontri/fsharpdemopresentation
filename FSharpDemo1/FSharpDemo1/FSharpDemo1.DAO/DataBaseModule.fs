@@ -18,14 +18,16 @@ type DataBase() =
                 [
                     new Person("Student1", "NickName1", (uint8)33);
                     new Person("Student2", "NickName2", (uint8)24);
-                    new Person("Student3", "NickName3", (uint8)20)
+                    new Person("Student3", "NickName3", (uint8)20);
+                    new Person("Student4", "NickName4", (uint8)20)
                 ]
 
         static let people =
                 [
                     new Person("Person1", "NickName1", (uint8)33);
                     new Person("Person2", "NickName2", (uint8)24);
-                    new Person("Person3", "NickName3", (uint8)51)
+                    new Person("Person3", "NickName3", (uint8)51);
+                    new Person("Person4", "NickName4", (uint8)51);
                 ]
 
         static let multipleSuperMario =
