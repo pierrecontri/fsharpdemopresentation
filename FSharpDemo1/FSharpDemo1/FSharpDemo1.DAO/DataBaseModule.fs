@@ -19,7 +19,6 @@ type DataBase() =
                     new Person("Student1", "NickName1", (uint8)33);
                     new Person("Student2", "NickName2", (uint8)24);
                     new Person("Student3", "NickName3", (uint8)20);
-                    new Person("Student4", "NickName4", (uint8)20);
                     new Person("Student4", "NickName4", (uint8)20)
                 ]
 
