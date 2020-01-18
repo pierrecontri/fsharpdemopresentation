@@ -53,9 +53,6 @@
     <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <Private>True</Private>
     </Reference>
-    <Reference Include="MyDll2">
-      <HintPath>..\..\FSharpDemo1\FSharpDemo1\ExternalProject\MyDll2.dll</HintPath>
-    </Reference>
     <Reference Include="SharpYaml">
       <HintPath>..\packages\FSharp.Configuration.0.2.2\lib\net40\SharpYaml.dll</HintPath>
       <Private>True</Private>
@@ -79,6 +76,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\MyDll2\MyDll2.csproj">
+      <Name>MyDll2</Name>
+      <Project>{94460526-aa4e-474e-99fd-7841c7d68330}</Project>
+      <Private>True</Private>
+    </ProjectReference>
     <ProjectReference Include="..\FSharpDemo1.DAO\FSharpDemo1.DAO.fsproj">
       <Name>FSharpDemo1.DAO</Name>
       <Project>{4b177ff8-6e09-4fcc-a19f-2055e042d99a}</Project>
