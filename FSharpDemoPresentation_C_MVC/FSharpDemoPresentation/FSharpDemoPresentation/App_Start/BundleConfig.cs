@@ -14,12 +14,12 @@ namespace FSharpDemoPresentation
             BundleTable.EnableOptimizations = false;
 
             bundles.UseCdn = true;
-            var cssTransformer = new CssTransformer();
-            var jsTransformer = new JsTransformer();
+            var cssTransformer = new StyleTransformer();
+            var jsTransformer = new ScriptTransformer();
             var nullOrderer = new NullOrderer();
 
             var cssBundle = new CustomStyleBundle("~/bundles/css");
-            cssBundle.Include("~/Content/Site.less", "~/Content/bootstrap/bootstrap.less");
+            cssBundle.Include("~/Content/Site.less", "~/Content/bootstrap/bootstrap");
             cssBundle.Transforms.Add(cssTransformer);
             cssBundle.Orderer = nullOrderer;
             bundles.Add(cssBundle);
@@ -43,7 +43,7 @@ namespace FSharpDemoPresentation
 
             var modernizrBundle = new CustomScriptBundle("~/bundles/modernizr");
             modernizrBundle.Include("~/Scripts/modernizr-*");
-            modernizrBundle.Transforms.Add(jsTransformer);
+            //modernizrBundle.Transforms.Add(jsTransformer);
             modernizrBundle.Orderer = nullOrderer;
             bundles.Add(modernizrBundle);
 
