@@ -19,7 +19,7 @@ namespace FSharpDemoPresentation
             var nullOrderer = new NullOrderer();
 
             var cssBundle = new CustomStyleBundle("~/bundles/css");
-            cssBundle.Include("~/Content/Site.less", "~/Content/bootstrap/bootstrap");
+            cssBundle.Include("~/Content/Site.less", "~/Content/bootstrap/responsive-embed.less");
             cssBundle.Transforms.Add(cssTransformer);
             cssBundle.Orderer = nullOrderer;
             bundles.Add(cssBundle);
